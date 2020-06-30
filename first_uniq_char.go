@@ -14,6 +14,9 @@ func firstUniqChar(s string) int {
 	for i := 0; i < length/2+1; i++ {
 		firstIndex := i
 		secondIndex := length - i - 1
+
+		// little hack here.
+		// There is a possibility both first & last index points the same :P
 		if firstIndex > secondIndex {
 			break
 		}
