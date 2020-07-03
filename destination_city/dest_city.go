@@ -18,24 +18,24 @@ func main() {
 
 func destCity(paths [][]string) string {
 	tailMap := make(map[string]bool)
-
-	// We may not route index too
-	routeIndex := make(map[string]bool)
 	for _, path := range paths {
-		_, ok := routeIndex[path[0]]
+		_, ok := tailMap[path[0]]
 		if !ok {
-			routeIndex[path[0]] = true
+			tailMap[path[0]] = false
 		} else {
 			delete(tailMap, path[0])
 		}
-		_, ok2 := routeIndex[path[1]]
+		_, ok2 := tailMap[path[1]]
 		if !ok2 {
-			routeIndex[path[1]] = true
 			tailMap[path[1]] = true
+		} else {
+			delete(tailMap, path[1])
 		}
 	}
-	for key, _ := range tailMap {
-		return key
+	for key, value := range tailMap {
+		if value {
+			return key
+		}
 	}
 	return ""
 }
