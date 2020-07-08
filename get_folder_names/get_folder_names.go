@@ -4,6 +4,8 @@ import "regexp"
 import "fmt"
 import "strconv"
 
+// https://leetcode.com/problems/making-file-names-unique/
+
 func main() {
 	input := []string{"onepiece", "onepiece(1)", "onepiece(2)", "onepiece(3)", "onepiece"}
 	fmt.Println(getFolderNames(input))
